@@ -27,9 +27,9 @@ describe('createResponse', () => {
           .toEqual('<html><body><h1>red</h1></body></html>')
       });
 
-      it('responds with html with an h1 and the word green @/green using GET method', async() => {
+      it('responds with html displaying an h1 with the word green using GET method', async() => {
         const response = await request(app)
-          .get('/green');
+          .get('/green')
     
         expect(response.text)
           .toEqual('<html><body><h1>green</h1></body></html>')
