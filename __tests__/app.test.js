@@ -37,9 +37,17 @@ describe('createResponse', () => {
 
       it('responds with html displaying an h1 with the word blue using GET method', async() => {
         const response = await request(app)
-          .get('/green')
+          .get('/blue')
     
         expect(response.text)
-          .toEqual('<html><body><h1>green</h1></body></html>')
+          .toEqual('<html><body><h1>blue</h1></body></html>')
       });
+
+      it('responds with 404 when HTML page not found', async() => {
+        const response = await request(app)
+          .post('/');
+    
+        expect(response.status)
+          .toEqual(404);
+      }); 
 });
