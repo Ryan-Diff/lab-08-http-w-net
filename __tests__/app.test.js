@@ -18,4 +18,12 @@ describe('createResponse', () => {
         expect(response.text)
         .toEqual('hi')
     });
+
+    it('responds with html displaying an h1 with the word red using GET method', async() => {
+        const response = await request(app)
+          .get('/red');
+    
+        expect(response.text)
+          .toEqual('<html><body><h1>red</h1></body></html>');
+      });
 });
